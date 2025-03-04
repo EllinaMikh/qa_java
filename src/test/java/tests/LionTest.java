@@ -29,14 +29,9 @@ public class LionTest {
         Assert.assertFalse("У самки не должно быть гривы", lioness.doesHaveMane());
     }
 
-    @Test
-    public void whenWrongSexThrowExceptionTest() {
-        try {
-            Lion lion = new Lion("Null", feline);
-        } catch (Exception exception) {
-            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка",
-                    exception.getMessage());
-        }
+    @Test (expected = Exception.class)
+    public void whenWrongSexThrowExceptionTest() throws Exception {
+        Lion lion = new Lion("Null", feline);
     }
 
     @Test
